@@ -1,5 +1,5 @@
-import Particles from 'https://cdn.skypack.dev/react-particles@2.8.0';
-import {loadFull} from 'https://cdn.skypack.dev/tsparticles@2.8.0';
+import Particles from 'react-particles';
+import {loadFull} from 'tsparticles';
 import {useCallback} from 'react';
 
 export const Confettis = () => {
@@ -15,7 +15,6 @@ export const Confettis = () => {
     },
     life: {
       count: 1,
-      duration: 0.3,
       delay: 0,
     },
     rate: {
