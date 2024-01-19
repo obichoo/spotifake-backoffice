@@ -1,11 +1,11 @@
 import {Button, Checkbox, Pagination, Table, TextInput} from 'flowbite-react';
 import {useEffect, useState} from 'react';
-import axiosService from '../../services/axios-service';
 import {useToastService} from '../../services/toast-service';
 import {PencilIcon} from '@heroicons/react/24/solid';
 import {EditArtistModal} from './editArtistModal';
 import {AddArtistModal} from './addArtistModal';
 import {DeleteArtistModal} from './deleteArtistModal';
+import fetchService from '../../services/fetch-service';
 
 export const ArtistsPage = () => {
   const [artists, setArtists] = useState([]);
@@ -67,9 +67,9 @@ export const ArtistsPage = () => {
   };
 
   const getArtists = () => {
-    axiosService
-      .get('/artists')
-      .then(({data}) => {
+    fetchService
+      .fetchData('/artists')
+      .then(data => {
         const newArtists = data.map(artist => ({
           ...artist,
           tag: Object.values(artist).join(','),
@@ -89,9 +89,9 @@ export const ArtistsPage = () => {
   };
 
   const getAlbums = () => {
-    axiosService
-      .get('/playlists')
-      .then(({data}) => {
+    fetchService
+      .fetchData('/playlists')
+      .then(data => {
         const onlyAlbums = data
           .filter(playlist => playlist.isAlbum)
           .map(album => ({

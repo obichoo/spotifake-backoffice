@@ -1,7 +1,7 @@
 import {FileInput, Label, TextInput} from 'flowbite-react';
 import {SpotiModal} from '../../../components/modal';
 import {useEffect, useState} from 'react';
-import axiosService from '../../../services/axios-service';
+import axiosService from '../../../services/fetch-service';
 import Select from 'react-tailwindcss-select';
 import {useToastService} from '../../../services/toast-service';
 
